@@ -8,16 +8,13 @@ import com.squareup.okhttp.HttpResponseCache;
 import com.squareup.okhttp.OkHttpClient;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
-
-import javax.security.auth.callback.Callback;
 
 import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
 import tme.transactthis.com.couponquest.model.inmar.vo.Coupon;
-import tme.transactthis.com.couponquest.model.inmar.vo.OfferParams;
+import tme.transactthis.com.couponquest.model.inmar.params.OfferParams;
 
 /**
  * Created by trey on 7/12/14.
@@ -27,7 +24,7 @@ public class InmarApi {
 
     public static InmarApi mInstance;
 
-    private static final String API_URL = "https://tme-ice.test.dpn.inmar.com";
+    private static final String API_URL = "http://tme-ice.test.dpn.inmar.com";
 
     private RestAdapter mRestAdapter;
     private InmarServices mServices;
@@ -52,9 +49,9 @@ public class InmarApi {
 
         okHttpClient.setResponseCache(cache);
 
-        Gson gson = new GsonBuilder()
+        Gson gson = new GsonBuilder().create();
                 //.registerTypeAdapter(Date.class, new DateAdapter())
-                .create();
+               // .create();
 
         mRestAdapter = new RestAdapter.Builder()
                 .setClient(new OkClient(okHttpClient))
@@ -62,7 +59,7 @@ public class InmarApi {
                 .setServer(API_URL)
                 .build();
 
-        mRestAdapter.create(InmarServices.class);
+        mServices = mRestAdapter.create(InmarServices.class);
     }
 
     public void login(String username, String password){
@@ -85,6 +82,13 @@ public class InmarApi {
                 , params.expired
                 , params.includeClipped
                 ,callback
+        );
+
+    }
+
+    public void getOffers(retrofit.Callback<List<Coupon>> callback){
+        mServices.getOffers(
+                callback
         );
 
     }

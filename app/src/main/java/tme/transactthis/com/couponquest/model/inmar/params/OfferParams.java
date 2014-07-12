@@ -1,4 +1,4 @@
-package tme.transactthis.com.couponquest.model.inmar.vo;
+package tme.transactthis.com.couponquest.model.inmar.params;
 
 /**
  * Created by trey on 7/12/14.
@@ -6,6 +6,9 @@ package tme.transactthis.com.couponquest.model.inmar.vo;
  */
 public class OfferParams {
 
+    public OfferParams(){
+
+    }
 
     public OfferParams(String token
             , int skip

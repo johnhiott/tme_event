@@ -25,4 +25,7 @@ public interface InmarServices {
                 , @Query("includeClipped") boolean includeClipped
                 , Callback<List<Coupon>> callback);
 
+    @GET("/offers")
+    public void getOffers(Callback<List<Coupon>> callback);
+
 }

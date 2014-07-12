@@ -6,12 +6,6 @@ package tme.transactthis.com.couponquest.model.inmar.vo;
  */
 public class Category {
 
-  //  "id":"sukNR2W4Qe",
-//                "name":"Grocery",
-//                "active":23,
-//                "value":2405,
-//                "key":"grocery"
-
     public String id;
     public String name;
     public int active;
