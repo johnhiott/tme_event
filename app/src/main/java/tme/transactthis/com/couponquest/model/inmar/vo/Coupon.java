@@ -24,5 +24,6 @@ public class Coupon {
     public InmarDate expirationDate;
     public InmarDate clipStartDate;
     public InmarDate clipEndDate;
+  
 
 }
