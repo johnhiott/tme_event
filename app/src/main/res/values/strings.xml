@@ -10,8 +10,8 @@
     <string name="sample_coupon_text">Save $1.00 on ONE (1) package of SCOTT Bath</string>
     <string name="sample_coupon_price">$2.00</string>
     <string name="consumer_warning_text">CONSUMER: Coupon may not be transferred, sold, auctioned, altered or copied. Limit one coupon per purchase. Offer void if these conditions are violated</string>
-
     <string name="COUPON_KEY">COUPONKEY</string>
     <string name="trey_robinson">Trey Robinson</string>
+    <string name="title_activity_rewards_card">RewardsCardActivity</string>
 
 </resources>

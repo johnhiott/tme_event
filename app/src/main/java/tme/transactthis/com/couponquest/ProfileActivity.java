@@ -12,6 +12,7 @@ import butterknife.OnClick;
  */
 public class ProfileActivity extends Activity {
 
+
     public static void startProfileActivity(Activity caller)
     {
         Intent intent = new Intent(caller, ProfileActivity.class);
@@ -26,5 +27,10 @@ public class ProfileActivity extends Activity {
 
     @OnClick(R.id.gotowallet) void goToWallet() {
         // TODO Go To Wallet
+    }
+
+    @OnClick(R.id.companCard) void goToCard() {
+        Intent intent = new Intent(this, RewardsCardActivity.class);
+        startActivity(intent);
     }
 }
