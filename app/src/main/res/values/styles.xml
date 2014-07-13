@@ -5,4 +5,9 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="GreenButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@drawable/button_text_states</item>
+        <item name="android:background">@drawable/green_button</item>
+    </style>
+
 </resources>

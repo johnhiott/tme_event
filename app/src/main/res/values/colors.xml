@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="chateau_green">#31A43F</color>
+    <color name="mantis">#6ACE6E</color>
+    <color name="button_text_color">#FFFFFF</color>
+    <color name="button_text_color_pressed">#7A7C7C</color>
+</resources>
