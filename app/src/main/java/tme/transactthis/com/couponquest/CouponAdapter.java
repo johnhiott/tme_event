@@ -62,7 +62,7 @@ public class CouponAdapter extends ArrayAdapter<ICoupon> {
 
         //min
         textView = (TextView) rowView.findViewById( R.id.min );
-        textView.setText( values.get(position).getMinPurchase() );
+        textView.setText( "Min: " + values.get(position).getMinPurchase() );
 
         //expires
         textView = (TextView) rowView.findViewById( R.id.expires );
@@ -75,7 +75,7 @@ public class CouponAdapter extends ArrayAdapter<ICoupon> {
             newDate = sdf.parse( date );
             sdf.applyPattern("MM/dd/yyyy");
             String newDateString = sdf.format(newDate);
-            textView.setText( newDateString );
+            textView.setText( "Expires: " + newDateString );
         } catch (ParseException e) {
             e.printStackTrace();
         }

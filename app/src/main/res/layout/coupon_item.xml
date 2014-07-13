@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <TextView
         android:id="@+id/brand"
@@ -10,15 +13,22 @@
         android:layout_height="wrap_content"
         android:text="Zatarins Rice"
         android:singleLine="true"
-        android:layout_toRightOf="@+id/image"/>
+        android:layout_toRightOf="@+id/image"
+        android:textSize="18sp"
+        android:textColor="#333333" />
 
     <TextView
         android:id="@+id/value"
+        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/brand"
-        android:layout_toRightOf="@id/image"
-        android:text="$3.00"/>
+        android:text="$3.00"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="@color/mantis"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/lock"
@@ -33,7 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/image"
-        android:layout_below="@id/value"
+        android:layout_below="@id/brand"
+        android:textColor="#cc0000"
         android:text="3"/>
 
     <TextView
@@ -42,12 +53,15 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/image"
         android:layout_below="@id/min"
+        android:textColor="#cc0000"
         android:text="3/22/1987"/>
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/rice"/>
+        android:src="@drawable/rice"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"/>
 
 </RelativeLayout>
