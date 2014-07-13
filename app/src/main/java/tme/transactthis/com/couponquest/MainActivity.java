@@ -81,7 +81,7 @@ public class MainActivity extends ListActivity implements IBeaconConsumer {
         beaconUtil = new BeaconServiceUtility(this);
         questActivityIntent = new Intent(this, QuestViewActivity.class);
 
-        questMode = false;
+        questMode = true;
     }
 
     @Override
