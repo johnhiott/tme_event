@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseClassName;
 import com.parse.ParseException;
@@ -40,32 +41,60 @@ public class MainActivity extends ListActivity {
         final Context context = this;
 
         //TODO: this will actually be a query to parse
-        InmarApi.getInstance().getOffers( new Callback<List<Coupon>>() {
+        ParseUser user = ParseUser.getCurrentUser();
+        user.fetchInBackground(new GetCallback<ParseObject>() {
             @Override
-            public void success(List<Coupon> couponResponse, Response response) {
-                mCoupons = (List<ICoupon>)(List<?>) couponResponse;
-                CouponAdapter couponAdapter = new CouponAdapter( context, mCoupons );
-                setListAdapter( couponAdapter );
-            }
+            public void done(ParseObject parseObject, ParseException e) {
+                final UserInfo info = (UserInfo)parseObject.getParseObject("userInfo");
+                info.fetchInBackground(new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject parseObject, ParseException e) {
+                        ParseObject.fetchAllInBackground(info.getCouponList(), new FindCallback<tme.transactthis.com.couponquest.model.vo.Coupon>() {
+                            @Override
+                            public void done(List<tme.transactthis.com.couponquest.model.vo.Coupon> coupons, ParseException e) {
+                                setAdapter(info);
+                            }
+                        });
 
-            @Override
-            public void failure(RetrofitError error) {
-                Log.d("FAILURE", "FAILURE");
+                    }
+                });
+
             }
         });
+
+
+//        InmarApi.getInstance().getOffers( new Callback<List<Coupon>>() {
+//            @Override
+//            public void success(List<Coupon> couponResponse, Response response) {
+//                mCoupons = (List<ICoupon>)(List<?>) couponResponse;
+//                CouponAdapter couponAdapter = new CouponAdapter( context, mCoupons );
+//                setListAdapter( couponAdapter );
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                Log.d("FAILURE", "FAILURE");
+//            }
+//        });
+    }
+
+    public void setAdapter(UserInfo userInfo){
+        mCoupons = (List<ICoupon>)(List<?>)userInfo.getCouponList();
+        CouponAdapter couponAdapter = new CouponAdapter(this, mCoupons );
+        setListAdapter( couponAdapter );
     }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id){
         Intent intent = new Intent(this, CouponDetailActivity.class);
-        intent.putExtra( getString(R.string.COUPON_KEY), (Coupon) mCoupons.get(position));
+        intent.putExtra(getString(R.string.COUPON_KEY), (Coupon) mCoupons.get(position));
         startActivity(intent);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate( R.menu.main, menu );
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
