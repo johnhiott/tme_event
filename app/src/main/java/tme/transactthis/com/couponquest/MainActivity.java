@@ -7,15 +7,27 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.parse.GetCallback;
+import com.parse.ParseClassName;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import tme.transactthis.com.couponquest.model.ICoupon;
+import tme.transactthis.com.couponquest.model.QuestManager;
 import tme.transactthis.com.couponquest.model.inmar.InmarApi;
 import tme.transactthis.com.couponquest.model.inmar.vo.Coupon;
+import tme.transactthis.com.couponquest.model.vo.UserInfo;
 
 
 public class MainActivity extends ListActivity {
@@ -31,6 +43,7 @@ public class MainActivity extends ListActivity {
         InmarApi.getInstance().getOffers( new Callback<List<Coupon>>() {
             @Override
             public void success(List<Coupon> couponResponse, Response response) {
+                mCoupons = couponResponse;
                 CouponAdapter couponAdapter = new CouponAdapter( context, couponResponse );
                 setListAdapter( couponAdapter );
             }
@@ -61,4 +74,21 @@ public class MainActivity extends ListActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        final ICoupon coupon = mCoupons.get(position);
+
+//        QuestManager.getInstance().saveCoupon((tme.transactthis.com.couponquest.model.vo.Coupon)coupon.getParseObject() , new SaveCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                Log.d("Sup son", "yay");
+//            }
+//        });
+
+
+    }
+
+
+
 }
