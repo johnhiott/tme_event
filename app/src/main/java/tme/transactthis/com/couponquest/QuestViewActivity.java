@@ -72,7 +72,11 @@ public class QuestViewActivity extends ListActivity implements NfcAdapter.Reader
 
 
     }
-
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id){
+        ICoupon coupon = mCoupons.get(position);
+        CouponDetailActivity.startDetailActivity(this, coupon.getShortDescription(), coupon.getValue(), coupon.getDescription(), coupon.getTerms());
+    }
 
     @Override
     public void onTagDiscovered(Tag tag) {

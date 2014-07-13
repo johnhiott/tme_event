@@ -69,12 +69,25 @@
 
 
 
-    <View
+    <RelativeLayout
         android:layout_width="400dp"
         android:id="@+id/lockBackground"
         android:layout_height="96dp"
+        android:orientation="horizontal"
         android:layout_centerInParent="true"
-        android:background="#E1E1e1"/>
+        android:background="#E1E1e1">
+
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:paddingTop="10dp"
+            android:text="Find Product To Unlock"/>
+
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/lock"
@@ -82,7 +95,10 @@
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/lock"
+        android:paddingTop="15dp"
         android:layout_centerInParent="true"
         android:visibility="visible"/>
+
+
 
 </RelativeLayout>
