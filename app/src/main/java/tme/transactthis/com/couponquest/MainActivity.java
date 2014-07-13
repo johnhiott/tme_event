@@ -10,14 +10,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
+import com.parse.GetCallback;
+import com.parse.ParseClassName;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
+
 import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import tme.transactthis.com.couponquest.model.ICoupon;
+import tme.transactthis.com.couponquest.model.QuestManager;
 import tme.transactthis.com.couponquest.model.inmar.InmarApi;
 import tme.transactthis.com.couponquest.model.inmar.vo.Coupon;
+import tme.transactthis.com.couponquest.model.vo.UserInfo;
 
 
 public class MainActivity extends ListActivity {
@@ -70,4 +79,5 @@ public class MainActivity extends ListActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

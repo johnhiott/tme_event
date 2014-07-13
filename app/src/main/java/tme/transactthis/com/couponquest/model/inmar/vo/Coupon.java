@@ -121,7 +121,8 @@ public class Coupon implements ICoupon, Serializable{
     @Override
     public ParseObject getParseObject() {
 
-        ParseObject coupon = new ParseObject("Coupon");
+        tme.transactthis.com.couponquest.model.vo.Coupon coupon = new tme.transactthis.com.couponquest.model.vo.Coupon();
+        //ParseObject coupon = ParseObject.create("Coupon");
         coupon.put(KEY_MDID, mdid);
         coupon.put(KEY_BADGE, badge);
         coupon.put(KEY_BRAND, brand);
@@ -136,7 +137,7 @@ public class Coupon implements ICoupon, Serializable{
         coupon.put(KEY_CAT_NAME, getCategoryName());
         coupon.put(KEY_CAT_ACTIVE, getCategoryActive());
         coupon.put(KEY_CAT_VALUE, getCategoryValue());
-        coupon.put(KEY_CAT_GROCERY, getCategoryGrocery());
+        //coupon.put(KEY_CAT_GROCERY, getCategoryGrocery());
         return coupon;
     }
 

@@ -2,11 +2,9 @@ package tme.transactthis.com.couponquest.model.vo;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
-import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import tme.transactthis.com.couponquest.model.inmar.vo.Coupon;
 
 /**
  * Created by trey on 7/12/14.
@@ -32,7 +30,11 @@ public class UserInfo extends ParseObject {
     }
 
     public List<Coupon> getCouponList(){
-        return getList(KEY_COUPON_LIST);
+        List<Coupon> coupons = getList(KEY_COUPON_LIST);
+        if (coupons == null) {
+            coupons = new ArrayList<Coupon>();
+        }
+        return coupons;
     }
 
     public void setQuestList(List<Quest> questList){

@@ -47,6 +47,8 @@ public class MainApplication extends Application {
         ParseUser.logInInBackground("transactthis", "transactthis", new LogInCallback() {
             public void done(ParseUser user, com.parse.ParseException e) {
                 if (user != null) {
+
+
                 } else {
                     // Signup failed. Look at the ParseException to see what happened.
                 }
