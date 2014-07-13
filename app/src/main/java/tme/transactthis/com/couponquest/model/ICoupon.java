@@ -25,4 +25,7 @@ public interface ICoupon {
     public String getCategoryGrocery();
     public ParseObject getParseObject();
 
+    public Boolean isLocked();
+    public void setLocked(Boolean locked);
+
 }

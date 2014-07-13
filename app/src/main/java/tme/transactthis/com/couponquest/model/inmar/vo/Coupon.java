@@ -19,6 +19,7 @@ public class Coupon implements ICoupon, Serializable{
     public String terms;
     public String minPurchase;
     public InmarDate expirationDate;
+    private Boolean isLocked = true;
 
     public int getMdid() {
         return mdid;
@@ -141,5 +142,14 @@ public class Coupon implements ICoupon, Serializable{
         return coupon;
     }
 
+    @Override
+    public void setLocked(Boolean locked) {
+        this.isLocked = locked;
+    }
+
+    @Override
+    public Boolean isLocked() {
+        return isLocked;
+    }
 
 }

@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +21,7 @@ import java.io.InputStream;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -29,10 +33,16 @@ public class CouponAdapter extends ArrayAdapter<ICoupon> {
     private final Context context;
     private final List<ICoupon> values;
 
+    //lol been awake for 24 hours.. lets do this.
+    private List<View> animateViews;
+    private List<ImageView> animateLocks;
+
     public CouponAdapter(Context context, List<ICoupon> values) {
         super(context, R.layout.coupon_item, values);
         this.context = context;
         this.values = values;
+        animateViews = new ArrayList<View>();
+        animateLocks = new ArrayList<ImageView>();
     }
 
     @Override
@@ -64,6 +74,19 @@ public class CouponAdapter extends ArrayAdapter<ICoupon> {
         textView = (TextView) rowView.findViewById( R.id.min );
         textView.setText( "Min: " + values.get(position).getMinPurchase() );
 
+        View bgview  =  rowView.findViewById( R.id.lockBackground );
+        animateViews.add(bgview);
+
+        ImageView lock = (ImageView) rowView.findViewById( R.id.lock );
+        animateLocks.add(lock);
+        if(values.get(position).isLocked()){
+            bgview.setVisibility(View.VISIBLE);
+            lock.setVisibility(View.VISIBLE);
+        } else {
+            bgview.setVisibility(View.GONE);
+            lock.setVisibility(View.GONE);
+        }
+
         //expires
         textView = (TextView) rowView.findViewById( R.id.expires );
 
@@ -80,12 +103,41 @@ public class CouponAdapter extends ArrayAdapter<ICoupon> {
             e.printStackTrace();
         }
 
-
-
-
-
         return rowView;
     }
+
+    public ImageView unlockNext(){
+        for(ICoupon coupon : values){
+            if(coupon.isLocked()){
+                ImageView lock = animateLocks.get(values.indexOf(coupon));
+                return lock;
+            }
+
+        }
+        return null;
+    }
+    public View unlockNextView(){
+        for(ICoupon coupon : values){
+            if(coupon.isLocked()){
+                //unlock(values.indexOf(coupon));
+                View view = animateViews.get(values.indexOf(coupon));
+                return view;
+            }
+
+        }
+        return null;
+    }
+
+    public void setNextUnlocked(){
+        for(ICoupon coupon : values){
+            if(coupon.isLocked()){
+               coupon.setLocked(false);
+               break;
+            }
+
+        }
+    }
+
 }
 
 

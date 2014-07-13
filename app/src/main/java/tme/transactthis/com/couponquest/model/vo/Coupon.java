@@ -110,4 +110,14 @@ public class Coupon extends ParseObject implements ICoupon {
     public ParseObject getParseObject() {
         return this;
     }
+
+    @Override
+    public Boolean isLocked() {
+        return false;
+    }
+
+    @Override
+    public void setLocked(Boolean locked) {
+
+    }
 }
