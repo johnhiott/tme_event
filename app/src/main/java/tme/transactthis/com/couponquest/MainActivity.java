@@ -1,26 +1,28 @@
 package tme.transactthis.com.couponquest;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.ListView;
 
 import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import tme.transactthis.com.couponquest.model.ICoupon;
 import tme.transactthis.com.couponquest.model.inmar.InmarApi;
 import tme.transactthis.com.couponquest.model.inmar.vo.Coupon;
 
 
 public class MainActivity extends ListActivity {
 
-    private List<Coupon> mCoupons;
+    private List<ICoupon> mCoupons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,8 @@ public class MainActivity extends ListActivity {
         InmarApi.getInstance().getOffers( new Callback<List<Coupon>>() {
             @Override
             public void success(List<Coupon> couponResponse, Response response) {
-                CouponAdapter couponAdapter = new CouponAdapter( context, couponResponse );
+                mCoupons = (List<ICoupon>)(List<?>) couponResponse;
+                CouponAdapter couponAdapter = new CouponAdapter( context, mCoupons );
                 setListAdapter( couponAdapter );
             }
 
@@ -42,11 +45,17 @@ public class MainActivity extends ListActivity {
         });
     }
 
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id){
+        Intent intent = new Intent(this, CouponDetailActivity.class);
+        intent.putExtra( getString(R.string.COUPON_KEY), (Coupon) mCoupons.get(position));
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate( R.menu.main, menu );
         return true;
     }
 

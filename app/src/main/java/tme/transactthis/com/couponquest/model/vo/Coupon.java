@@ -1,5 +1,6 @@
 package tme.transactthis.com.couponquest.model.vo;
 
+import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
 import java.util.Date;
@@ -11,6 +12,7 @@ import tme.transactthis.com.couponquest.model.inmar.vo.InmarDate;
  * Created by trey on 7/12/14.
  * Copyright 2014 MindMine LLC.
  */
+@ParseClassName("Coupon")
 public class Coupon extends ParseObject implements ICoupon {
 
     private static final String KEY_MDID = "mdid";
