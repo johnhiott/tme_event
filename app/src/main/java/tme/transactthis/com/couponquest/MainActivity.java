@@ -1,5 +1,6 @@
 package tme.transactthis.com.couponquest;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -62,20 +63,12 @@ public class MainActivity extends ListActivity {
             }
         });
 
+       ActionBar ab= getActionBar();
+       ab.setTitle("   Trey Robinson");
+       ab.setIcon(R.drawable.trey_small);
+       ab.setDisplayHomeAsUpEnabled(true);
+       ab.setHomeAsUpIndicator(R.drawable.transparent_for_trey);
 
-//        InmarApi.getInstance().getOffers( new Callback<List<Coupon>>() {
-//            @Override
-//            public void success(List<Coupon> couponResponse, Response response) {
-//                mCoupons = (List<ICoupon>)(List<?>) couponResponse;
-//                CouponAdapter couponAdapter = new CouponAdapter( context, mCoupons );
-//                setListAdapter( couponAdapter );
-//            }
-//
-//            @Override
-//            public void failure(RetrofitError error) {
-//                Log.d("FAILURE", "FAILURE");
-//            }
-//        });
     }
 
     public void setAdapter(UserInfo userInfo){
@@ -105,6 +98,10 @@ public class MainActivity extends ListActivity {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
+        }
+        if(id == android.R.id.home){
+            //@TODO Load profile.
+            Log.d("Going home", "i want to go home");
         }
         return super.onOptionsItemSelected(item);
     }
