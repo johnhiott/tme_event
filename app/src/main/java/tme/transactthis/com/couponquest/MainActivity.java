@@ -1,13 +1,13 @@
 package tme.transactthis.com.couponquest;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.ListView;
 
 import java.util.List;
 
@@ -31,7 +31,8 @@ public class MainActivity extends ListActivity {
         InmarApi.getInstance().getOffers( new Callback<List<Coupon>>() {
             @Override
             public void success(List<Coupon> couponResponse, Response response) {
-                CouponAdapter couponAdapter = new CouponAdapter( context, couponResponse );
+                mCoupons = couponResponse;
+                CouponAdapter couponAdapter = new CouponAdapter( context, mCoupons );
                 setListAdapter( couponAdapter );
             }
 
@@ -40,16 +41,18 @@ public class MainActivity extends ListActivity {
                 Log.d("FAILURE", "FAILURE");
             }
         });
-
-
-
     }
 
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id){
+        Bundle args = new Bundle();
+        args.putSerializable( getString(R.string.COUPON_KEY), mCoupons.get(position) );
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate( R.menu.main, menu );
         return true;
     }
 
