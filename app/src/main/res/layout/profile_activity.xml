@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/profile_pic"
+        android:src="@drawable/trey"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_below="@+id/profile_pic"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:text="@string/trey_robinson" />
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_below="@id/profile_name"
+        android:src="@drawable/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/gotowallet"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        style="@style/GreenButtonStyle"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:text="Go To Wallet"
+        />
+
+    <!-- I started laying this out, realized that was stupid so now
+     we're doing it with an image. Leaving this here encase we change
+     out minds.-->
+
+    <!--&lt;!&ndash; Company 1 &ndash;&gt;-->
+
+    <!--<ImageView-->
+        <!--android:src="@drawable/ht"-->
+        <!--android:id="@+id/company1_pic"-->
+        <!--android:background="@color/chateau_green"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_below="@+id/profile_name"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/company1"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="24dp"-->
+        <!--android:layout_below="@+id/profile_name"-->
+        <!--android:layout_toRightOf="@+id/company1_pic"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:textSize="24sp"-->
+        <!--android:text="Harris Tetter" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/company1_coupons"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="19dp"-->
+        <!--android:layout_below="@+id/company1"-->
+        <!--android:layout_toRightOf="@+id/company1_pic"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:textSize="16sp"-->
+        <!--android:text="3 Coupons" />-->
+
+    <!--<View android:layout_width="70dp"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:layout_below="@id/profile_name"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--android:layout_marginTop="18dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="@drawable/thin_green_circle"/>-->
+
+    <!--<TextView android:layout_width="50dp"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:layout_below="@id/profile_name"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="26dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:gravity="center"-->
+        <!--android:text="Level 7"-->
+        <!--android:textSize="18sp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@color/mantis" />-->
+
+    <!--<View-->
+        <!--android:id="@+id/sep1"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_below="@+id/company1_pic"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@android:color/darker_gray" />-->
+
+    <!--&lt;!&ndash; Company 2 &ndash;&gt;-->
+    <!---->
+    <!--<ImageView-->
+        <!--android:src="@drawable/ht"-->
+        <!--android:id="@+id/company2_pic"-->
+        <!--android:background="@color/chateau_green"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_below="@+id/profile_name"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/company2"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="24dp"-->
+        <!--android:layout_below="@+id/profile_name"-->
+        <!--android:layout_toRightOf="@+id/company1_pic"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:textSize="24sp"-->
+        <!--android:text="Harris Tetter" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/company2_coupons"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="19dp"-->
+        <!--android:layout_below="@+id/company1"-->
+        <!--android:layout_toRightOf="@+id/company1_pic"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:textSize="16sp"-->
+        <!--android:text="3 Coupons" />-->
+
+    <!--<View android:layout_width="70dp"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:layout_below="@id/profile_name"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--android:layout_marginTop="18dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="@drawable/thin_green_circle"/>-->
+
+    <!--<TextView android:layout_width="50dp"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:layout_below="@id/profile_name"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="26dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:gravity="center"-->
+        <!--android:text="Level 7"-->
+        <!--android:textSize="18sp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@color/mantis" />-->
+
+    <!--<View-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_below="@+id/company1_pic"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@android:color/darker_gray" />-->
+    <!--&lt;!&ndash; Company 3 &ndash;&gt;-->
+
+    <!-- End Companies -->
+
+</RelativeLayout>

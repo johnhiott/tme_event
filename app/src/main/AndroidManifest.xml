@@ -24,28 +24,21 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CouponDetailActivity" android:label="CouponTest" android:screenOrientation="portrait">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
+        <activity android:name=".CouponDetailActivity" android:label="Coupon" >
+        </activity>
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+        <activity android:name=".ProfileActivity" android:label="Trey Robinson" >
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".iBeaconTestActivity" android:label="CouponTest" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
 
         <activity android:name=".NFCTestActivity" android:label="CouponTest" >
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
 
         <service android:enabled="true"

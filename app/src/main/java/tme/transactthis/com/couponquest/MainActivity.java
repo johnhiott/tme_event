@@ -100,8 +100,8 @@ public class MainActivity extends ListActivity {
             return true;
         }
         if(id == android.R.id.home){
-            //@TODO Load profile.
             Log.d("Going home", "i want to go home");
+            ProfileActivity.startProfileActivity(this);
         }
         return super.onOptionsItemSelected(item);
     }
