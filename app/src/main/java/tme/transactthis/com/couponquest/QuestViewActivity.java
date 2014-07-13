@@ -72,7 +72,11 @@ public class QuestViewActivity extends ListActivity implements NfcAdapter.Reader
 
 
     }
-
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id){
+        ICoupon coupon = mCoupons.get(position);
+        CouponDetailActivity.startDetailActivity(this, coupon.getShortDescription(), coupon.getValue(), coupon.getDescription(), coupon.getTerms());
+    }
 
     @Override
     public void onTagDiscovered(Tag tag) {
@@ -99,7 +103,6 @@ public class QuestViewActivity extends ListActivity implements NfcAdapter.Reader
                         }
                     });
                     fadeOut.setInterpolator(new AccelerateInterpolator()); //and this
-                    fadeOut.setStartOffset(1000);
                     fadeOut.setDuration(1000);
                     image.startAnimation(fadeOut);
                 }
@@ -111,7 +114,7 @@ public class QuestViewActivity extends ListActivity implements NfcAdapter.Reader
                 @Override
                 public void run() {
                     Animation slide = AnimationUtils.loadAnimation(QuestViewActivity.this,
-                            android.R.anim.slide_out_right);
+                            R.anim.slide_right);
                     slide.setAnimationListener(new Animation.AnimationListener() {
                         @Override
                         public void onAnimationStart(Animation animation) {

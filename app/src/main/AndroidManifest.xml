@@ -3,59 +3,68 @@
     package="tme.transactthis.com.couponquest" >
 
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:name="MainApplication"
         android:theme="@style/Theme.Transactthis" >
-
-        <activity android:name=".QuestViewActivity" android:screenOrientation="portrait">
-
+        <activity
+            android:name=".QuestViewActivity"
+            android:screenOrientation="portrait" >
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".CouponDetailActivity" android:label="Coupon" >
+        <activity
+            android:name=".CouponDetailActivity"
+            android:label="Coupon" android:screenOrientation="portrait" >
         </activity>
-
-        <activity android:name=".ProfileActivity" android:label="Trey Robinson" >
+        <activity
+            android:name=".ProfileActivity"
+            android:label="Trey Robinson" >
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".iBeaconTestActivity" android:label="CouponTest" >
+        <activity
+            android:name=".iBeaconTestActivity"
+            android:label="CouponTest" >
+        </activity>
+        <activity
+            android:name=".NFCTestActivity"
+            android:label="CouponTest" >
         </activity>
 
-        <activity android:name=".NFCTestActivity" android:label="CouponTest" >
-        </activity>
-
-        <service android:enabled="true"
+        <service
+            android:name="com.radiusnetworks.ibeacon.service.IBeaconService"
+            android:enabled="true"
             android:exported="true"
             android:isolatedProcess="false"
-            android:label="iBeacon"
-            android:name="com.radiusnetworks.ibeacon.service.IBeaconService">
+            android:label="iBeacon" >
+        </service>
+        <service
+            android:name="com.radiusnetworks.ibeacon.IBeaconIntentProcessor"
+            android:enabled="true" >
         </service>
 
-        <service android:enabled="true"
-            android:name="com.radiusnetworks.ibeacon.IBeaconIntentProcessor">
-        </service>
+        <activity
+            android:name=".RewardsCardActivity"
+            android:label="@string/title_activity_rewards_card" >
+        </activity>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
