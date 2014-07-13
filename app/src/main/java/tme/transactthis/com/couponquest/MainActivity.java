@@ -30,6 +30,7 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
         final Context context = this;
 
+        //TODO: this will actually be a query to parse
         InmarApi.getInstance().getOffers( new Callback<List<Coupon>>() {
             @Override
             public void success(List<Coupon> couponResponse, Response response) {
@@ -69,5 +70,10 @@ public class MainActivity extends ListActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void tmpClick(View v){
+        Intent intent = new Intent(this, QuestViewActivity.class);
+        startActivity(intent);
     }
 }
