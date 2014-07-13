@@ -25,4 +25,5 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:1.3.0'
     compile 'com.squareup.picasso:picasso:2.2.0'
     compile 'com.android.support:support-v4:20.+'
+    compile 'com.jakewharton:butterknife:5.1.1'
 }
