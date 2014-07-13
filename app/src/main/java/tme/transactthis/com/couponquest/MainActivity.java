@@ -42,6 +42,7 @@ public class MainActivity extends ListActivity implements IBeaconConsumer {
 
     private Intent questActivityIntent;
     private Boolean questMode;
+    private MenuItem questMenuItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +112,8 @@ public class MainActivity extends ListActivity implements IBeaconConsumer {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        questMenuItem = (MenuItem) menu.findItem(R.id.quest_action);
+        questMenuItem.setVisible(questMode);
         return true;
     }
 
@@ -120,8 +123,9 @@ public class MainActivity extends ListActivity implements IBeaconConsumer {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.quest_action) {
+            Intent intent = new Intent(this, QuestViewActivity.class);
+            startActivity(intent);
         }
         if(id == android.R.id.home){
             Log.d("Going home", "i want to go home");
@@ -150,6 +154,7 @@ public class MainActivity extends ListActivity implements IBeaconConsumer {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                invalidateOptionsMenu();
                                 startActivity(questActivityIntent);
                             }
                         });
