@@ -15,7 +15,7 @@ public class Quest extends ParseObject {
     private static final String KEY_USER = "user";
     private static final String KEY_STORE = "store";
     private static final String KEY_QUEST_ITEMS = "questItems";
-
+    private static final String KEY_QUEST_COMPLETE = "isComplete";
 
     public void setUser(UserInfo userInfo){
         put(KEY_USER, userInfo);
@@ -39,6 +39,14 @@ public class Quest extends ParseObject {
 
     public void setQuestItems(List<QuestItem> items){
         put(KEY_QUEST_ITEMS, items);
+    }
+
+    public void setKeyQuestComplete(Boolean complete) {
+        put (KEY_QUEST_COMPLETE, complete);
+    }
+
+    public Boolean getKeyQuestComplete() {
+        return (Boolean) get(KEY_QUEST_COMPLETE);
     }
 
 
