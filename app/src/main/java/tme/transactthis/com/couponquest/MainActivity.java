@@ -81,7 +81,7 @@ public class MainActivity extends ListActivity implements IBeaconConsumer {
         beaconUtil = new BeaconServiceUtility(this);
         questActivityIntent = new Intent(this, QuestViewActivity.class);
 
-        questMode = true;
+        questMode = false;
     }
 
     @Override
@@ -112,8 +112,8 @@ public class MainActivity extends ListActivity implements IBeaconConsumer {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        questMenuItem = (MenuItem) menu.findItem(R.id.quest_action);
-        questMenuItem.setVisible(questMode);
+//        questMenuItem = (MenuItem) menu.findItem(R.id.quest_action);
+//        questMenuItem.setVisible(questMode);
         return true;
     }
 

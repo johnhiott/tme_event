@@ -3,7 +3,6 @@
     tools:context=".MainActivity" >
     <item android:id="@+id/quest_action"
         android:icon="@drawable/ic_action_gamepad"
-        android:visible="false"
         android:title="CouponQuest"
         android:showAsAction="always"/>
 </menu>
