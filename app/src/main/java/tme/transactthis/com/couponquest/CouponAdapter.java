@@ -17,13 +17,14 @@ import com.squareup.picasso.Picasso;
 import java.io.InputStream;
 import java.util.List;
 
+import tme.transactthis.com.couponquest.model.ICoupon;
 import tme.transactthis.com.couponquest.model.inmar.vo.Coupon;
 
-public class CouponAdapter extends ArrayAdapter<Coupon> {
+public class CouponAdapter extends ArrayAdapter<ICoupon> {
     private final Context context;
-    private final List<Coupon> values;
+    private final List<ICoupon> values;
 
-    public CouponAdapter(Context context, List<Coupon> values) {
+    public CouponAdapter(Context context, List<ICoupon> values) {
         super(context, R.layout.coupon_item, values);
         this.context = context;
         this.values = values;
@@ -42,23 +43,23 @@ public class CouponAdapter extends ArrayAdapter<Coupon> {
 
         //brand
         textView = (TextView) rowView.findViewById(R.id.brand);
-        textView.setText( values.get(position).brand );
+        textView.setText( values.get(position).getBrand() );
 
         //image
         imageView = (ImageView) rowView.findViewById(R.id.image);
-        Picasso.with(context).load( values.get(position).imageUrl ).into(imageView);
+        Picasso.with(context).load( values.get(position).getImageUrl() ).into(imageView);
 
         //value
         textView = (TextView) rowView.findViewById( R.id.value );
-        //textView.setText( values.get(position).value );
+        textView.setText( Integer.toString( values.get(position).getValue() ) );
 
         //min
         textView = (TextView) rowView.findViewById( R.id.min );
-        textView.setText( values.get(position).minPurchase );
+        textView.setText( values.get(position).getMinPurchase() );
 
         //expires
         textView = (TextView) rowView.findViewById( R.id.expires );
-        textView.setText( values.get(position).expirationDate.iso );
+        textView.setText( values.get(position).getExpirationDate() );
 
         return rowView;
     }
