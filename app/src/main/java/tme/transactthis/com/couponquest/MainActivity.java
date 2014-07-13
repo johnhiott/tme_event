@@ -2,6 +2,7 @@ package tme.transactthis.com.couponquest;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,13 +15,14 @@ import java.util.List;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import tme.transactthis.com.couponquest.model.ICoupon;
 import tme.transactthis.com.couponquest.model.inmar.InmarApi;
 import tme.transactthis.com.couponquest.model.inmar.vo.Coupon;
 
 
 public class MainActivity extends ListActivity {
 
-    private List<Coupon> mCoupons;
+    private List<ICoupon> mCoupons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class MainActivity extends ListActivity {
         InmarApi.getInstance().getOffers( new Callback<List<Coupon>>() {
             @Override
             public void success(List<Coupon> couponResponse, Response response) {
-                mCoupons = couponResponse;
+                mCoupons = (List<ICoupon>)(List<?>) couponResponse;
                 CouponAdapter couponAdapter = new CouponAdapter( context, mCoupons );
                 setListAdapter( couponAdapter );
             }
@@ -45,8 +47,9 @@ public class MainActivity extends ListActivity {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id){
-        Bundle args = new Bundle();
-        args.putSerializable( getString(R.string.COUPON_KEY), mCoupons.get(position) );
+        Intent intent = new Intent(this, CouponDetailActivity.class);
+        intent.putExtra( getString(R.string.COUPON_KEY), (Coupon) mCoupons.get(position));
+        startActivity(intent);
     }
 
     @Override
