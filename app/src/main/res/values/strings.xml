@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="expires">Expires: </string>
     <string name="minimum">Minimum: </string>
+    <string name="COUPON_KEY">COUPONKEY</string>
 
 </resources>
