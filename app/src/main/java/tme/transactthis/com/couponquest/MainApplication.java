@@ -1,17 +1,22 @@
 package tme.transactthis.com.couponquest;
 
 import android.app.Application;
-import android.util.Log;
 
+import com.parse.LogInCallback;
 import com.parse.Parse;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
-import java.util.List;
+import java.text.ParseException;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 import tme.transactthis.com.couponquest.model.inmar.InmarApi;
-import tme.transactthis.com.couponquest.model.inmar.vo.Coupon;
+import tme.transactthis.com.couponquest.model.vo.Coupon;
+import tme.transactthis.com.couponquest.model.vo.Level;
+import tme.transactthis.com.couponquest.model.vo.Quest;
+import tme.transactthis.com.couponquest.model.vo.QuestItem;
+import tme.transactthis.com.couponquest.model.vo.Store;
+import tme.transactthis.com.couponquest.model.vo.UserInfo;
 
 /**
  * Created by trey on 7/12/14.
@@ -24,7 +29,31 @@ public class MainApplication extends Application {
         super.onCreate();
 
         InmarApi.create(getApplicationContext(), 5*1024*1024);
-        Parse.initialize(this, "6Du1LJR8K9vGLGYSRlFG 9BYpv0IRxVhaHdxAObeW", "zoG34zCZxuaxnZhxHfVcuf4MUtnvckhqVmpvOnkO");
+        Parse.initialize(this, "6Du1LJR8K9vGLGYSRlFG9BYpv0IRxVhaHdxAObeW", "zoG34zCZxuaxnZhxHfVcuf4MUtnvckhqVmpvOnkO");
+
+        ParseObject.registerSubclass(Coupon.class);
+        ParseObject.registerSubclass(UserInfo.class);
+        ParseObject.registerSubclass(Store.class);
+        ParseObject.registerSubclass(QuestItem.class);
+        ParseObject.registerSubclass(Quest.class);
+        ParseObject.registerSubclass(Level.class);
+
+
+//        ParseUser user = new ParseUser();
+//        user.setUsername("transactthis");
+//        user.setPassword("transactthis");
+//        user.setEmail("user@transactthis.com");
+
+        ParseUser.logInInBackground("transactthis", "transactthis", new LogInCallback() {
+            public void done(ParseUser user, com.parse.ParseException e) {
+                if (user != null) {
+                } else {
+                    // Signup failed. Look at the ParseException to see what happened.
+                }
+            }
+        });
+
+
 
     }
 }

@@ -152,6 +152,10 @@ public class iBeaconTestActivity extends Activity implements IBeaconConsumer {
                 if (arrayL.get(position).getProximityUuid() != null)
                     holder.beacon_uuid.setText("UUID: " + arrayL.get(position).getProximityUuid());
 
+//                if (arrayL.get(position).getMinor() == 15) {
+//                    Log.e(TAG, "********************************** Give this to Trey: " + arrayL.get(position).getProximityUuid());
+//                }
+
                 holder.beacon_major.setText("Major: " + arrayL.get(position).getMajor());
 
                 holder.beacon_minor.setText(", Minor: " + arrayL.get(position).getMinor());
