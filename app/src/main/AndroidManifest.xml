@@ -8,10 +8,13 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Transactthis" >
+
         <activity
+            android:parentActivityName=".MainActivity"
             android:name=".QuestViewActivity"
             android:screenOrientation="portrait" >
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -23,10 +26,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:parentActivityName=".MainActivity"
             android:name=".CouponDetailActivity"
             android:label="Coupon" android:screenOrientation="portrait" >
         </activity>
+
         <activity
+            android:parentActivityName=".MainActivity"
             android:name=".ProfileActivity"
             android:label="Trey Robinson" >
             <intent-filter>
@@ -35,6 +41,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".RewardsCardActivity"
+            android:label="@string/title_activity_rewards_card" >
+        </activity>
+
         <activity
             android:name=".iBeaconTestActivity"
             android:label="CouponTest" >
@@ -56,10 +68,6 @@
             android:enabled="true" >
         </service>
 
-        <activity
-            android:name=".RewardsCardActivity"
-            android:label="@string/title_activity_rewards_card" >
-        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
