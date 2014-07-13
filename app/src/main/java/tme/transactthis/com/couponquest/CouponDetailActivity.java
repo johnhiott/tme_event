@@ -10,6 +10,8 @@ import java.text.NumberFormat;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 import tme.transactthis.com.couponquest.model.ICoupon;
 
 /**
@@ -69,5 +71,9 @@ public class CouponDetailActivity extends Activity {
         couponDollarAmount.setText(categoryValue);
         couponDetail.setText(description);
         couponDisclaimer.setText(terms);
+    }
+
+    @OnClick(R.id.addToCard) public void addToCard(){
+        Crouton.makeText(this, "Coupon added to Harris Teeter Card", Style.INFO).show();
     }
 }

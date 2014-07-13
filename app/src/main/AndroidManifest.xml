@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name=".CouponDetailActivity"
-            android:label="Coupon" >
+            android:label="Coupon" android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".ProfileActivity"
