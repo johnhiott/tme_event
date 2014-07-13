@@ -1,11 +1,13 @@
 package tme.transactthis.com.couponquest.model.vo;
 
+import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
 /**
  * Created by trey on 7/12/14.
  * Copyright 2014 MindMine LLC.
  */
+@ParseClassName("Store")
 public class Store extends ParseObject {
 
     private static final String KEY_STORENAME = "storeName";
