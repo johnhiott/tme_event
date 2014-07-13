@@ -41,9 +41,4 @@ public class CouponDetailActivity extends Activity {
         couponDetail.setText(mCoupon.getDescription());
         couponDisclaimer.setText(mCoupon.getTerms());
     }
-
-    @OnClick(R.id.unlock_button) void submit() {
-        //TODO Unlock this coupon
-    }
-
 }
