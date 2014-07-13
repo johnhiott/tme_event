@@ -9,7 +9,7 @@
         android:name="MainApplication"
         android:theme="@style/Theme.Transactthis" >
 
-        <activity android:name=".QuestViewActivity">
+        <activity android:name=".QuestViewActivity" android:screenOrientation="portrait">
 
         </activity>
 

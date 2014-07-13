@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="fill_parent">
 
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/trey"
-            android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:id="@+id/companyImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/harriss_teeter"
+        android:paddingTop="24dp"
+        android:paddingBottom="10dp"
+        android:layout_centerHorizontal="true"/>
 
-        <TextView
-            android:id="@+id/level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Level: 7"
-            android:layout_below="@+id/profileImage"
-            android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/companyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harris Teeter"
+        android:textSize="24sp"
+        android:layout_below="@+id/companyImage"
+        android:layout_centerHorizontal="true"/>
 
-        <ListView
-            android:id="@android:id/list"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/level"/>
+    <TextView
+        android:id="@+id/dealsToFind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Now Shopping with 3 Deals to Find"
+        android:layout_below="@+id/companyName"
+        android:paddingBottom="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/dealsToFind"/>
 
 </RelativeLayout>

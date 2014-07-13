@@ -1,67 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/brand"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:ellipsize="end"
-        android:layout_height="wrap_content"
-        android:text="Zatarins Rice"
-        android:singleLine="true"
-        android:layout_toRightOf="@+id/image"
-        android:textSize="18sp"
-        android:textColor="#333333" />
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+        <TextView
+            android:id="@+id/brand"
+            android:layout_width="match_parent"
+            android:ellipsize="end"
+            android:layout_height="wrap_content"
+            android:text="Zatarins Rice"
+            android:singleLine="true"
+            android:layout_toRightOf="@+id/image"
+            android:textSize="18sp"
+            android:textColor="#333333" />
 
-    <TextView
-        android:id="@+id/value"
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/brand"
-        android:text="$3.00"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:textColor="@color/mantis"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/value"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/brand"
+            android:text="$3.00"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textColor="@color/mantis"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+
+        <TextView
+            android:id="@+id/min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/image"
+            android:layout_below="@id/brand"
+            android:textColor="#cc0000"
+            android:text="3"/>
+
+        <TextView
+            android:id="@+id/expires"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/image"
+            android:layout_below="@id/min"
+            android:textColor="#cc0000"
+            android:text="3/22/1987"/>
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rice"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+
+
+
+
+
+
+    <View
+        android:layout_width="400dp"
+        android:id="@+id/lockBackground"
+        android:layout_height="96dp"
+        android:layout_centerInParent="true"
+        android:background="#E1E1e1"/>
 
     <ImageView
         android:id="@+id/lock"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/lock"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/min"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/image"
-        android:layout_below="@id/brand"
-        android:textColor="#cc0000"
-        android:text="3"/>
-
-    <TextView
-        android:id="@+id/expires"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/image"
-        android:layout_below="@id/min"
-        android:textColor="#cc0000"
-        android:text="3/22/1987"/>
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/rice"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"/>
+        android:layout_centerInParent="true"
+        android:visibility="visible"/>
 
 </RelativeLayout>
