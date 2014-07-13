@@ -8,12 +8,14 @@
     <TextView
         android:id="@+id/coupon_title_tv"
         android:layout_width="250dp"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
+        android:lines="3"
+        android:ellipsize="end"
         android:text="@string/sample_coupon_text"
         android:textSize="32sp" />
 
@@ -44,6 +46,8 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Save $2.00 on Scotts Toilet Paper."
+        android:lines="2"
+        android:ellipsize="end"
         android:textSize="22sp"/>
 
     <TextView
@@ -57,6 +61,8 @@
         android:paddingRight="8dp"
         android:text="@string/consumer_warning_text"
         android:textColor="@android:color/darker_gray"
+        android:lines="3"
+        android:ellipsize="end"
         android:textSize="10.5sp"/>
 
 </RelativeLayout>

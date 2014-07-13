@@ -56,9 +56,8 @@ public class MainActivity extends ListActivity {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id){
-        Intent intent = new Intent(this, CouponDetailActivity.class);
-        intent.putExtra( getString(R.string.COUPON_KEY), (Coupon) mCoupons.get(position));
-        startActivity(intent);
+        ICoupon coupon = mCoupons.get(position);
+        CouponDetailActivity.startDetailActivity(this, coupon.getShortDescription(), coupon.getValue(), coupon.getDescription(), coupon.getTerms());
     }
 
     @Override

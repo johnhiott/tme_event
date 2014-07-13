@@ -8,4 +8,7 @@
     android:width="6dp"
     android:color="@color/chateau_green" />
 
+    <solid
+        android:color="@android:color/transparent" />
+
 </shape>
