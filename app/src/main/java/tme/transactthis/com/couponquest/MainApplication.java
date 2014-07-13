@@ -3,6 +3,8 @@ package tme.transactthis.com.couponquest;
 import android.app.Application;
 import android.util.Log;
 
+import com.parse.Parse;
+
 import java.util.List;
 
 import retrofit.Callback;
@@ -22,18 +24,7 @@ public class MainApplication extends Application {
         super.onCreate();
 
         InmarApi.create(getApplicationContext(), 5*1024*1024);
-
-//        InmarApi.getInstance().getOffers( new Callback<List<Coupon>>() {
-//            @Override
-//            public void success(List<Coupon> couponResponse, Response response) {
-//                Log.d("SUCCESS", "SUCCESS");
-//            }
-//
-//            @Override
-//            public void failure(RetrofitError error) {
-//                Log.d("FAILURE", "FAILURE");
-//            }
-//        });
+        Parse.initialize(this, "6Du1LJR8K9vGLGYSRlFG 9BYpv0IRxVhaHdxAObeW", "zoG34zCZxuaxnZhxHfVcuf4MUtnvckhqVmpvOnkO");
 
     }
 }

@@ -26,6 +26,14 @@
         android:layout_toRightOf="@id/image"
         android:text="$3.00"/>
 
+    <ImageView
+        android:id="@+id/lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/rice"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/min"
         android:layout_width="wrap_content"
