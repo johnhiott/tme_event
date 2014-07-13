@@ -80,20 +80,4 @@ public class MainActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        final ICoupon coupon = mCoupons.get(position);
-
-//        QuestManager.getInstance().saveCoupon((tme.transactthis.com.couponquest.model.vo.Coupon)coupon.getParseObject() , new SaveCallback() {
-//            @Override
-//            public void done(ParseException e) {
-//                Log.d("Sup son", "yay");
-//            }
-//        });
-
-
-    }
-
-
-
 }
