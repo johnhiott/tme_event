@@ -40,9 +40,6 @@ public class MainActivity extends ListActivity {
                 Log.d("FAILURE", "FAILURE");
             }
         });
-
-
-
     }
 
 

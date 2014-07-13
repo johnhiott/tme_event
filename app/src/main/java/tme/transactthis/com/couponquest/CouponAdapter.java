@@ -50,7 +50,7 @@ public class CouponAdapter extends ArrayAdapter<Coupon> {
 
         //value
         textView = (TextView) rowView.findViewById( R.id.value );
-        textView.setText( values.get(position).value );
+//        textView.setText( values.get(position).value );
 
         //min
         textView = (TextView) rowView.findViewById( R.id.min );
