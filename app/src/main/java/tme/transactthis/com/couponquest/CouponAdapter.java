@@ -43,7 +43,7 @@ public class CouponAdapter extends ArrayAdapter<ICoupon> {
 
         //brand
         textView = (TextView) rowView.findViewById(R.id.brand);
-        //textView.setText( values.get(position).getBrand() );
+        textView.setText( values.get(position).getBrand() );
 
         //image
         imageView = (ImageView) rowView.findViewById(R.id.image);
