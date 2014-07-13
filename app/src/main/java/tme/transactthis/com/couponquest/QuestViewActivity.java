@@ -37,7 +37,7 @@ public class QuestViewActivity extends Activity implements NfcAdapter.ReaderCall
     @Override
     public void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.quest_view_activity);
 
         NfcManager nm = (NfcManager) getSystemService(NFC_SERVICE);
         NfcAdapter na = nm.getDefaultAdapter();

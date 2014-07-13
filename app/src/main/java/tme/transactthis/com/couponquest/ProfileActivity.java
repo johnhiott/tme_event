@@ -12,6 +12,12 @@ import butterknife.OnClick;
  */
 public class ProfileActivity extends Activity {
 
+    public static void startProfileActivity(Activity caller)
+    {
+        Intent intent = new Intent(caller, ProfileActivity.class);
+        caller.startActivity(intent);
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_activity);

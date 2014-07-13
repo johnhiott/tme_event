@@ -15,7 +15,12 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import tme.transactthis.com.couponquest.model.ICoupon;
 import tme.transactthis.com.couponquest.model.inmar.vo.Coupon;
@@ -43,7 +48,7 @@ public class CouponAdapter extends ArrayAdapter<ICoupon> {
 
         //brand
         textView = (TextView) rowView.findViewById(R.id.brand);
-        //textView.setText( values.get(position).getBrand() );
+        textView.setText( values.get(position).getBrand() );
 
         //image
         imageView = (ImageView) rowView.findViewById(R.id.image);
@@ -51,15 +56,33 @@ public class CouponAdapter extends ArrayAdapter<ICoupon> {
 
         //value
         textView = (TextView) rowView.findViewById( R.id.value );
-        textView.setText( Integer.toString( values.get(position).getValue() ) );
+        NumberFormat fmt = NumberFormat.getCurrencyInstance();
+        float num = (float) values.get(position).getValue()/100;
+        textView.setText( fmt.format( num ) );
 
         //min
         textView = (TextView) rowView.findViewById( R.id.min );
-        textView.setText( values.get(position).getMinPurchase() );
+        textView.setText( "Min: " + values.get(position).getMinPurchase() );
 
         //expires
         textView = (TextView) rowView.findViewById( R.id.expires );
-        textView.setText( values.get(position).getExpirationDate() );
+
+        String[] strings = values.get(position).getExpirationDate().split("T");
+        String date = strings[0];
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
+        Date newDate;
+        try {
+            newDate = sdf.parse( date );
+            sdf.applyPattern("MM/dd/yyyy");
+            String newDateString = sdf.format(newDate);
+            textView.setText( "Expires: " + newDateString );
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+
+
 
         return rowView;
     }
