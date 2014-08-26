@@ -112,8 +112,8 @@ public class MainActivity extends ListActivity implements IBeaconConsumer {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-//        questMenuItem = (MenuItem) menu.findItem(R.id.quest_action);
-//        questMenuItem.setVisible(questMode);
+        questMenuItem = (MenuItem) menu.findItem(R.id.quest_action);
+        questMenuItem.setVisible(questMode);
         return true;
     }
 
@@ -145,7 +145,9 @@ public class MainActivity extends ListActivity implements IBeaconConsumer {
             @Override
             public void didRangeBeaconsInRegion(Collection<IBeacon> iBeacons, Region region) {
                 for (IBeacon beacon : iBeacons) {
-                    if (beacon.getMinor() == 15
+                Log.i ( "Beacon Info: ", beacon.getProximityUuid() + ", " +
+                        beacon.getMajor() + ", " + beacon.getMinor() );
+                  if (beacon.getMinor() == 20
                         && beacon.getMajor() == 1
                         && beacon.getProximityUuid().equalsIgnoreCase("1341bef5-56f1-4f75-8972-fe35a422aecc")
                         && beacon.getProximity() == 1
