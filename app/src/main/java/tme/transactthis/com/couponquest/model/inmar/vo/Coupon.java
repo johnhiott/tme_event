@@ -1,12 +1,10 @@
 package tme.transactthis.com.couponquest.model.inmar.vo;
 
-import java.io.Serializable;
 import com.parse.ParseObject;
-import java.util.Date;
 
 import tme.transactthis.com.couponquest.model.ICoupon;
 
-public class Coupon implements ICoupon, Serializable{
+public class Coupon implements ICoupon {
 
     public int mdid;
     public String badge;
