@@ -1,4 +1,4 @@
-###TME Event Hackathon
+###TME Hackathon
 
 This is our repo from the 24 hour event.
 
